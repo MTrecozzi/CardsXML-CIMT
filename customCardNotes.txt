@@ -5,6 +5,7 @@ PlayableCards
 - King, Knight, Dragon, Jester, Sleeping Potion, Magic Wand
 - Name, Type
 
+
 Number Cards
 - Value
 - Pips
@@ -13,6 +14,18 @@ Queen Cards
 - Name
 
 /// end of Key Definitions
+
+// NAMES
+
+King Names
+
+Turtle, Hat, Fire, Bubble Gum, Puzzle, Cookie, Tie-Dye, Chess
+
+Queen names
+
+"Starfish", "Cat", "Dog", "Peacock", "Rainbow", "Ladybug", "Pancake", "Cake", "Heart", "Sunflower", "Rose", "Moon"
+
+
 
 // Extra notes
 King Cards
