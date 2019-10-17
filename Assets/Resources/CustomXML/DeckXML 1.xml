@@ -7,6 +7,10 @@
 	<!-- A list of all cards that defines where pips are placed. -->
 
   <playableCard type="knight"/>
+  <playableCard type="dragon"/>
+  <playableCard type="wand"/>
+  <playableCard type="potion"/>
+  <playableCard type="jester"/>
   
   <playableCard type="king" name="Fire"/>
   <playableCard type="king" name="Turtle"/>
@@ -40,37 +44,37 @@
   <numberCard value="3">
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
   </numberCard>
   <numberCard value="4">
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
   </numberCard>
   <numberCard value="5">
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="135"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="45"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="0"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="225"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="315"/>
   </numberCard>
   <numberCard value="6">
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
   </numberCard>
   <numberCard value="7">
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
   </numberCard>
   <numberCard value="8">
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
@@ -94,15 +98,15 @@
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
   </numberCard>
   <numberCard value="10">
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
-    <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
+    <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
   </numberCard>
 </xml>
