@@ -7,6 +7,8 @@ public class SleepingQueens : MonoBehaviour
     [Header("Set in Inspector")]
     public TextAsset deckXML;
 
+    public PT_XMLReader xmlr;
+
     public GameObject queensCardPrefab;
 
     // Start is called before the first frame update
@@ -16,7 +18,11 @@ public class SleepingQueens : MonoBehaviour
 
         QueensCard cardData = testCard.GetComponent<QueensCard>();
 
+        xmlr = new PT_XMLReader();
+        xmlr.Parse(deckXML.ToString());
 
+
+        // Reference Deck.readDeck;
         // cardData.setType (xmlParser.getData[however, that's done].
 
     }
