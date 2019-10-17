@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e803ece3452241924c5a643c875ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckXML: {fileID: 0}
+  deckXML: {fileID: 4900000, guid: c56d1dd0811494a45959594cc7c46544, type: 3}
   xmlr:
     xmlText: 
   queensCardPrefab: {fileID: 100000, guid: 3ae7553d828595d42a5eb12dcf78e7b8, type: 3}
