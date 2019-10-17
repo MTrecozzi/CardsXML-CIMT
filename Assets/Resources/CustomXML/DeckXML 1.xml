@@ -5,7 +5,8 @@
 	<decorator type="suit" x="1.05" y="-1.03" z="0" flip="1" scale="0.4"/>
 	<decorator type="letter" x="1.05" y="-1.42" z="0" flip="1" scale="1.25"/>
 	<!-- A list of all cards that defines where pips are placed. -->
-
+  <!-- TODO add other number plus flip it-->
+  <!-- TODO create banners for kings and queens-->
   <playableCard type="knight"/>
   <playableCard type="dragon"/>
   <playableCard type="wand"/>
