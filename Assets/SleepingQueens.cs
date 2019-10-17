@@ -15,12 +15,12 @@ public class SleepingQueens : MonoBehaviour
     void Start()
     {
         GameObject testCard = Instantiate(queensCardPrefab);
-
         QueensCard cardData = testCard.GetComponent<QueensCard>();
 
         xmlr = new PT_XMLReader();
         xmlr.Parse(deckXML.ToString());
 
+        Debug.Log(xmlr.xml["xml"][0]["decorator"][0].att("type")); ;
 
         // Reference Deck.readDeck;
         // cardData.setType (xmlParser.getData[however, that's done].
