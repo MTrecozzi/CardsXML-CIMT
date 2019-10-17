@@ -84,4 +84,14 @@
 	<card rank="11" face="FaceCard_11"/>
 	<card rank="12" face="FaceCard_12"/>
 	<card rank="13" face="FaceCard_13"/>
+
+  <playableCard type ="knight">
+    <pip x="0" y="0" z="0" flip="0" scale="2"/>
+  </playableCard>
+  
 </xml>
+
+
+PlayableCard name = night;
+
+Playable

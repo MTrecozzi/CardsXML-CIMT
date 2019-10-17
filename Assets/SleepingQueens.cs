@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SleepingQueens : MonoBehaviour
 {
+    [Header("Set in Inspector")]
+    public TextAsset deckXML;
+
     // Start is called before the first frame update
     void Start()
     {
