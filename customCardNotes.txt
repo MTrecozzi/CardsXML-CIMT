@@ -1,0 +1,35 @@
+// Key Definitions
+
+PlayableCards 
+
+- King, Knight, Dragon, Jester, Sleeping Potion, Magic Wand
+- Name, Type
+
+Number Cards
+- Value
+- Pips
+
+Queen Cards
+- Name
+
+/// end of Key Definitions
+
+// Extra notes
+King Cards
+- String Name
+
+Queen Cards + point Values
+- String Name
+
+Knight Cards
+
+Dragon Card
+
+Jester
+
+Sleeping Potion
+
+Magic Wand
+
+Card Values 1 - 10, with pips
+
