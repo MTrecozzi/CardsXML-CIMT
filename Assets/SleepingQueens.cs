@@ -2,19 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum CardType
+public class SleepingQueens : MonoBehaviour
 {
-    PlayableCard, ValueCard, QueenCard
-}
-
-public class QueensCard : MonoBehaviour
-{
-    public CardType cardType;
-
-    public int value = 0;
-
-    public string title;
-
     // Start is called before the first frame update
     void Start()
     {
