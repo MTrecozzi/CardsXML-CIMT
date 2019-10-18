@@ -20,7 +20,25 @@ public class SleepingQueens : MonoBehaviour
         xmlr = new PT_XMLReader();
         xmlr.Parse(deckXML.ToString());
 
-        Debug.Log(xmlr.xml["xml"][0]["decorator"][0].att("type")); ;
+
+        // Get a pseudo collection of all our playable cards
+        PT_XMLHashList xtypes = xmlr.xml["xml"][0]["playableCard"];
+
+        // for each of our defined playable cards, print out their type
+        for (int i = 0; i < xtypes.Count; i++)
+        {
+            string cardName;
+            cardName = xtypes[i].att("type");
+
+            // junk code for practice, if our card has a name, add it before the type, I.e Fire King.
+            if (!xtypes[i].att("name").Equals(""))
+            {
+                cardName = xtypes[i].att("name") + " " + cardName;
+            }
+
+            // Debug.Log the name of all our playable cards.
+            Debug.Log(cardName);
+        }
 
         // Reference Deck.readDeck;
         // cardData.setType (xmlParser.getData[however, that's done].
