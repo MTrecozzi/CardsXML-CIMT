@@ -1,59 +1,50 @@
 <xml>
-	<!-- decorators appear on every card. They are the suit and rank in the corners. -->
-	<decorator type="letter" x="-1.05" y="1.42" z="0" flip="0" scale="1.25"/>
-	<decorator type="suit" x="-1.05" y="1.03" z="0" flip="0" scale="0.4"/>
-	<decorator type="suit" x="1.05" y="-1.03" z="0" flip="1" scale="0.4"/>
-	<decorator type="letter" x="1.05" y="-1.42" z="0" flip="1" scale="1.25"/>
+
 	<!-- A list of all cards that defines where pips are placed. -->
   <!-- TODO add other number plus flip it-->
   <!-- TODO create banners for kings and queens-->
-  <playableCard type="knight"/>
-  <playableCard type="dragon"/>
-  <playableCard type="wand"/>
-  <playableCard type="potion"/>
-  <playableCard type="jester"/>
+  <basiccard>
+  <!-- Sprite assignment for art? Like standard deck face cards?-->
+  </basiccard>
   
-  <playableCard type="king" name="Fire"/>
-  <playableCard type="king" name="Turtle"/>
-  <playableCard type="king" name="Hat"/>
-  <playableCard type="king" name="Bubble Gum"/>
-  <playableCard type="king" name="Puzzle"/>
-  <playableCard type="king" name="Cookie"/>
-  <playableCard type="king" name="Tie-Dye"/>
-  <playableCard type="king" name="Chess"/>
-
-  <queenCard name="Starfish" value="5"/>
-  <queenCard name="Cat" value="15"/>
-  <queenCard name="Dog" value="15"/>
-  <queenCard name="Peacock" value="10"/>
-  <queenCard name="Rainbow" value="5"/>
-  <queenCard name="Ladybug" value="10"/>
-  <queenCard name="Pancake" value="15"/>
-  <queenCard name="Cake" value="5"/>
-  <queenCard name="Heart" value="20"/>
-  <queenCard name="Sunflower" value="10"/>
-  <queenCard name="Rose" value="5"/>
-  <queenCard name="Moon" value="10"/>
+  <kingcard>
+    <decorator type="banner" x="0" y="0" z="0" scale="1"/>
+  </kingcard>
+  
+  <queencard>
+    <decorator type="banner" x="0" y="0" z="0" scale="1"/>
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+  </queencard>
 
   <numberCard value="1">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
   </numberCard>
   <numberCard value="2">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
   </numberCard>
   <numberCard value="3">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
   </numberCard>
   <numberCard value="4">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
     <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="1" flipy="0"/>
   </numberCard>
   <numberCard value="5">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="135"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="45"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="0"/>
@@ -61,6 +52,8 @@
     <pip x="0" y="0" z="0" flipx ="0" flipy="0" rotation="315"/>
   </numberCard>
   <numberCard value="6">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
@@ -69,6 +62,8 @@
     <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
   </numberCard>
   <numberCard value="7">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
@@ -78,6 +73,8 @@
     <pip x="0" y="0" z="0" flipx ="1" flipy="1"/>
   </numberCard>
   <numberCard value="8">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
@@ -88,6 +85,8 @@
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
   </numberCard>
   <numberCard value="9">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
@@ -99,6 +98,8 @@
     <pip x="0" y="0" z="0" flipx ="0" flipy="0"/>
   </numberCard>
   <numberCard value="10">
+    <decorator type="number" x="-1.05" y="1.42" z="0" flipy="0" scale="1.25"/>
+    <decorator type="number" x="1.05" y="-1.42" z="0" flipy="1" scale="1.25"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
     <pip x="0" y="0" z="0" flipx ="0" flipy="1"/>
