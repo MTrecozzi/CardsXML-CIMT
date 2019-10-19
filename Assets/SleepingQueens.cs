@@ -17,9 +17,16 @@ public class SleepingQueens : MonoBehaviour
     public TextAsset deckXML;
     public PT_XMLReader xmlr;
 
+    public List<Decorator> decorators;
+
     public GameObject queensCardPrefab;
     public GameObject prefabSprite;
 
+    [Header("Rank Sprites")]
+    public List<SpriteDefinition> rankSprites;
+
+    [Header("Pips")]
+    public Sprite tempPip;
 
 
     [Header("Special Card Sprites")]
@@ -29,16 +36,17 @@ public class SleepingQueens : MonoBehaviour
     public Sprite dragon;
     public Sprite potion;
 
-    [Header ("King Card Sprites")]
-    public Sprite tempPip;
-
-    public Sprite tempKingSprite;
-
     [Header("Queen Card Sprites")]
     public List<SpriteDefinition> queenSprites;
 
     [Header("King Card Sprites")]
     public List<SpriteDefinition> kingSprites;
+
+
+    public List<CardDefinition> cardDefs;
+
+    public Vector2 cardPos;
+    int xBorder = 10;
 
 
 
@@ -56,6 +64,18 @@ public class SleepingQueens : MonoBehaviour
 
     }
 
+    public Vector2 GetNewCardPos()
+    {
+        cardPos.x += 2.5f;
+        if (cardPos.x > xBorder)
+        {
+            cardPos.y -= 3.5f;
+            cardPos.x = -xBorder;
+        }
+
+        return cardPos;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,15 +85,16 @@ public class SleepingQueens : MonoBehaviour
         xmlr.Parse(deckXML.ToString());
 
         // Get a pseudo collection of all our playable cards
-        PT_XMLHashList xtypes = xmlr.xml["xml"][0]["playableCard"];
+        PT_XMLHashList xPlayables = xmlr.xml["xml"][0]["playableCard"];
 
-        int xBorder = 10;
-        Vector2 cardPos = Vector2.zero;
+        
+        cardPos = Vector2.zero;
 
-        cardPos.x = -xBorder;
+        cardPos.x = -xBorder - 2.5f;
         cardPos.y = 8;
 
-        for (int i = 0; i <xtypes.Count; i++)
+        // Create PlayableCards
+        for (int i = 0; i <xPlayables.Count; i++)
         {
             // testing card creation;
             GameObject testCard = Instantiate(queensCardPrefab);
@@ -88,22 +109,22 @@ public class SleepingQueens : MonoBehaviour
             pip.transform.localPosition = Vector3.zero;
             //pip.transform.localPosition = xtypes[0].att("pos");
 
-            cardData.cardName = xtypes[i].att("type");
+            cardData.cardName = xPlayables[i].att("type");
             cardData.cardType = CardType.PlayableCard;
             cardData.SetBannerText(cardData.cardName);
 
             Sprite curPip = null;
 
-            if (xtypes[i].att("type").Equals("king"))
+            if (xPlayables[i].att("type").Equals("king"))
             {
-                cardData.SetBannerText(xtypes[i].att("name") + " King");
-                curPip = GetKingSprite(xtypes[i].att("name"));
+                cardData.SetBannerText(xPlayables[i].att("name") + " King");
+                curPip = GetKingSprite(xPlayables[i].att("name"));
                 cardData.cardType = CardType.KingCard;
             }
 
             else  curPip = spritesDict[cardData.cardName];
 
-            testCard.transform.position = cardPos;
+            testCard.transform.position = GetNewCardPos();
 
             testCard.gameObject.name = cardData.cardName;
 
@@ -114,13 +135,23 @@ public class SleepingQueens : MonoBehaviour
                 currentRenderer.sprite = curPip;
             }
             
+        }
 
-            cardPos.x += 2.5f;
-            if (cardPos.x > xBorder)
-            {
-                cardPos.y -= 3.5f;
-                cardPos.x = -xBorder;
-            }
+        decorators = new List<Decorator>();
+        // grab all decorators from the XML file
+        PT_XMLHashList xDecos = xmlr.xml["xml"][0]["decorator"];
+        Decorator deco;
+        for (int i = 0; i < xDecos.Count; i++)
+        {
+            // for each decorator in the XML, copy attributes and set up location and flip if needed
+            deco = new Decorator();
+            deco.type = xDecos[i].att("type");
+            deco.flip = (xDecos[i].att("flip") == "1");   // too cute by half - if it's 1, set to 1, else set to 0
+            deco.scale = float.Parse(xDecos[i].att("scale"));
+            deco.loc.x = float.Parse(xDecos[i].att("x"));
+            deco.loc.y = float.Parse(xDecos[i].att("y"));
+            deco.loc.z = float.Parse(xDecos[i].att("z"));
+            decorators.Add(deco);
         }
 
         PT_XMLHashList xQueens = xmlr.xml["xml"][0]["queenCard"];
@@ -153,41 +184,110 @@ public class SleepingQueens : MonoBehaviour
 
             cardData.Initialize();
 
-            testCard.transform.position = cardPos;
+            testCard.transform.position = GetNewCardPos();
             testCard.gameObject.name = cardData.cardName;
 
             //Debug.Log(cardData.cardName);
 
             if (curPip != null)
                 currentRenderer.sprite = curPip;
-
-            cardPos.x += 2.5f;
-            if (cardPos.x > xBorder)
-            {
-                cardPos.y -= 3.5f;
-                cardPos.x = -xBorder;
-            }
         }
 
-        // for each of our defined playable cards, print out their type
-        for (int i = 0; i < xtypes.Count; i++)
+        cardDefs = new List<CardDefinition>();
+        // first we reference our xml NumberCard Definitions
+        PT_XMLHashList xNumberCards = xmlr.xml["xml"][0]["numberCard"];
+
+        // foreach of those definitions
+
+        for (int i = 0; i < xNumberCards.Count; i++)
         {
-            string cardName;
-            cardName = xtypes[i].att("type");
+            CardDefinition cDef = new CardDefinition();
+            cDef.rank = int.Parse(xNumberCards[i].att("value"));
 
-            // junk code for practice, if our card has a name, add it before the type, I.e Fire King.
-            if (!xtypes[i].att("name").Equals(""))
+            PT_XMLHashList xPips = xNumberCards[i]["pip"];
+
+            if (xPips != null)
             {
-                cardName = xtypes[i].att("name") + " " + cardName;
-            }
+                for (int j = 0; j < xPips.Count; j++)
+                {
+                    deco = new Decorator();
+                    deco.type = "pip";
+                    deco.flip = (xPips[j].att("flip") == "1");   // too cute by half - if it's 1, set to 1, else set to 0
 
-            // Debug.Log the name of all our playable cards.
-            Debug.Log(cardName);
+                    deco.loc.x = float.Parse(xPips[j].att("x"));
+                    deco.loc.y = float.Parse(xPips[j].att("y"));
+                    deco.loc.z = float.Parse(xPips[j].att("z"));
+                    if (xPips[j].HasAtt("scale"))
+                    {
+                        deco.scale = float.Parse(xPips[j].att("scale"));
+                    }
+                    cDef.pips.Add(deco);
+                }
+            }
+            cardDefs.Add(cDef);
         }
 
-        // Reference Deck.readDeck;
-        // cardData.setType (xmlParser.getData[however, that's done].
+        for (int i = 0; i <cardDefs.Count; i++)
+        {
+            GameObject cgo = Instantiate(queensCardPrefab) as GameObject;
+            // set cgo transform parent
+            QueensCard card = cgo.GetComponent<QueensCard>();
 
+            card.name = cardDefs[i].rank.ToString();
+            card.value = cardDefs[i].rank;
+            card.cardType = CardType.ValueCard;
+
+            //Add Decorators
+            foreach(Decorator decko in decorators)
+            {
+                GameObject tGO = Instantiate(prefabSprite) as GameObject;
+                SpriteRenderer tSR = tGO.GetComponent<SpriteRenderer>();
+
+                tSR.sprite = GetSpriteByRank(card.value);
+
+                tSR.color = Color.black;
+
+                tSR.sortingOrder = 1;                     // make it render above card
+                tGO.transform.parent = cgo.transform;     // make deco a child of card GO
+                tGO.transform.localPosition = decko.loc;   // set the deco's local position
+
+                if (decko.flip)
+                {
+                    tGO.transform.rotation = Quaternion.Euler(0, 0, 180);
+                }
+
+                if (decko.scale != 1)
+                {
+                    tGO.transform.localScale = Vector3.one * decko.scale;
+                }
+
+                tGO.name = decko.type;
+
+                
+
+                //card.decoGOs.Add(tGO);
+            } // end of foreach decorator creation
+
+            cgo.transform.position = GetNewCardPos();
+        }
+
+
+
+    }
+
+    private Sprite GetSpriteByRank(int spriteNumber)
+    {
+        Sprite sprit = null;
+
+        foreach (SpriteDefinition def in rankSprites)
+        {
+            if (def.name.Equals(spriteNumber.ToString()))
+            {
+                sprit = def.sprite;
+            }
+        }
+
+        return sprit;
     }
 
     private Sprite GetKingSprite(string _name)

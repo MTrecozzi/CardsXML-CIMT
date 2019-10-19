@@ -14,6 +14,9 @@ public class QueensCard : MonoBehaviour
     public int value = 0;
     public string cardName;
 
+    public List<GameObject> pipGos;
+    public List<GameObject> decoratorGos;
+
     //public string bannerName;
 
     public TextMeshProUGUI bannerText;

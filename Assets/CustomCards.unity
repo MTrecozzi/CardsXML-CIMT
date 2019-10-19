@@ -270,15 +270,36 @@ MonoBehaviour:
   deckXML: {fileID: 4900000, guid: c56d1dd0811494a45959594cc7c46544, type: 3}
   xmlr:
     xmlText: 
+  decorators: []
   queensCardPrefab: {fileID: 100000, guid: 3ae7553d828595d42a5eb12dcf78e7b8, type: 3}
   prefabSprite: {fileID: 100000, guid: 12a0355f16a4e3040b7c1daff1c8ed35, type: 3}
+  rankSprites:
+  - name: 1
+    sprite: {fileID: 21300004, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 2
+    sprite: {fileID: 21300006, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 3
+    sprite: {fileID: 21300008, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 4
+    sprite: {fileID: 21300010, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 5
+    sprite: {fileID: 21300012, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 6
+    sprite: {fileID: 21300014, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 7
+    sprite: {fileID: 21300016, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 8
+    sprite: {fileID: 21300018, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 9
+    sprite: {fileID: 21300020, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  - name: 10
+    sprite: {fileID: 21300022, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  tempPip: {fileID: 0}
   knight: {fileID: 21300000, guid: 0d4ec7238e3d2da49b5e2839e3b74c3e, type: 3}
   magicWand: {fileID: 21300000, guid: ba5749182d2f478448dd92402519829f, type: 3}
   jester: {fileID: 21300000, guid: 9989e5a8ffa6f794ea60378b7c8c795a, type: 3}
   dragon: {fileID: 21300000, guid: 5149990008eb15d4ea5064f55e260806, type: 3}
   potion: {fileID: 21300000, guid: 2f574c5fe53dd5e4cb31f948fa7f158d, type: 3}
-  tempPip: {fileID: 0}
-  tempKingSprite: {fileID: 0}
   queenSprites:
   - name: Starfish
     sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
@@ -321,3 +342,4 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
   - name: Chess
     sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+  cardDefs: []
