@@ -18,7 +18,7 @@
   <playableCard type="king" name="Hat">
     <decorator type="banner" x="0" y="0" z="0" scale="1"/>
   </playableCard>
-  <playableCard type="king" name="Bubble Gum">
+  <playableCard type="king" name="Bubble-Gum">
     <decorator type="banner" x="0" y="0" z="0" scale="1"/>
   </playableCard>
   <playableCard type="king" name="Puzzle">
