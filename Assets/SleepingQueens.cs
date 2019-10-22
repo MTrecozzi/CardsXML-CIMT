@@ -228,14 +228,14 @@ public class SleepingQueens : MonoBehaviour
             cardDefs.Add(cDef);
         }
 
-        for (int i = 0; i < cardDefs.Count; i++)
+        foreach (CardDefinition cdef in cardDefs)
         {
             GameObject cgo = Instantiate(queensCardPrefab) as GameObject;
             // set cgo transform parent
             QueensCard card = cgo.GetComponent<QueensCard>();
 
-            card.name = cardDefs[i].rank.ToString();
-            card.value = cardDefs[i].rank;
+            card.name = cdef.rank.ToString();
+            card.value = cdef.rank;
             card.cardType = CardType.ValueCard;
 
             //Add Decorators
@@ -267,30 +267,27 @@ public class SleepingQueens : MonoBehaviour
             } // end of foreach decorator creation
 
             // Add the pips
-            foreach (CardDefinition cdef in cardDefs)
+            foreach (Decorator pip in cdef.pips)
             {
-                foreach(Decorator pip in cdef.pips)
+                GameObject tempGO = Instantiate(prefabSprite) as GameObject;
+                tempGO.transform.parent = cgo.transform;
+                tempGO.transform.localPosition = pip.loc;
+
+                if (pip.flip)
                 {
-                    GameObject tempGO = Instantiate(prefabSprite) as GameObject;
-                    tempGO.transform.parent = cgo.transform;
-                    tempGO.transform.localPosition = pip.loc;
-
-                    if (pip.flip)
-                    {
-                        tempGO.transform.rotation = Quaternion.Euler(0, 0, 180);
-                    }
-
-                    if (pip.scale != 1)
-                    {
-                        tempGO.transform.localScale = Vector3.one * pip.scale;
-                    }
-
-                    tempGO.name = "pip";
-                    SpriteRenderer tempSR = tempGO.GetComponent<SpriteRenderer>();
-                    tempSR.sprite = GetPipSprite(card.name);
-                    tempSR.sortingOrder = 1;
-                    card.pipGos.Add(tempGO);
+                    tempGO.transform.rotation = Quaternion.Euler(0, 0, 180);
                 }
+
+                if (pip.scale != 1)
+                {
+                    tempGO.transform.localScale = Vector3.one * pip.scale;
+                }
+
+                tempGO.name = "pip";
+                SpriteRenderer tempSR = tempGO.GetComponent<SpriteRenderer>();
+                tempSR.sprite = GetPipSprite(card.name);
+                tempSR.sortingOrder = 1;
+                card.pipGos.Add(tempGO);
             }
             cgo.transform.position = GetNewCardPos();
         }
