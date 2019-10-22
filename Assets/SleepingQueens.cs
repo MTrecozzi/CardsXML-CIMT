@@ -26,7 +26,7 @@ public class SleepingQueens : MonoBehaviour
     public List<SpriteDefinition> rankSprites;
 
     [Header("Pips")]
-    public Sprite tempPip;
+    public List<SpriteDefinition> pipSprites;
 
 
     [Header("Special Card Sprites")]
@@ -87,14 +87,14 @@ public class SleepingQueens : MonoBehaviour
         // Get a pseudo collection of all our playable cards
         PT_XMLHashList xPlayables = xmlr.xml["xml"][0]["playableCard"];
 
-        
+
         cardPos = Vector2.zero;
 
         cardPos.x = -xBorder - 2.5f;
         cardPos.y = 8;
 
         // Create PlayableCards
-        for (int i = 0; i <xPlayables.Count; i++)
+        for (int i = 0; i < xPlayables.Count; i++)
         {
             // testing card creation;
             GameObject testCard = Instantiate(queensCardPrefab);
@@ -122,7 +122,7 @@ public class SleepingQueens : MonoBehaviour
                 cardData.cardType = CardType.KingCard;
             }
 
-            else  curPip = spritesDict[cardData.cardName];
+            else curPip = spritesDict[cardData.cardName];
 
             testCard.transform.position = GetNewCardPos();
 
@@ -134,7 +134,7 @@ public class SleepingQueens : MonoBehaviour
             {
                 currentRenderer.sprite = curPip;
             }
-            
+
         }
 
         decorators = new List<Decorator>();
@@ -153,7 +153,7 @@ public class SleepingQueens : MonoBehaviour
             deco.loc.z = float.Parse(xDecos[i].att("z"));
             decorators.Add(deco);
         }
-
+        Debug.Log(decorators.Count);
         PT_XMLHashList xQueens = xmlr.xml["xml"][0]["queenCard"];
 
         // Rough, way too much duplicate code, could be cleaned with definittions and more organization
@@ -173,9 +173,9 @@ public class SleepingQueens : MonoBehaviour
             //pip.transform.localPosition = xtypes[0].att("pos");
 
             cardData.cardName = xQueens[i].att("name");
-            cardData.value = int.Parse( xQueens[i].att("value"));
+            cardData.value = int.Parse(xQueens[i].att("value"));
             cardData.cardType = CardType.QueenCard;
-            
+
 
             Sprite curPip = null;
 
@@ -193,6 +193,7 @@ public class SleepingQueens : MonoBehaviour
                 currentRenderer.sprite = curPip;
         }
 
+        //cardDefs = new List<CardDefinition>();
         cardDefs = new List<CardDefinition>();
         // first we reference our xml NumberCard Definitions
         PT_XMLHashList xNumberCards = xmlr.xml["xml"][0]["numberCard"];
@@ -227,7 +228,7 @@ public class SleepingQueens : MonoBehaviour
             cardDefs.Add(cDef);
         }
 
-        for (int i = 0; i <cardDefs.Count; i++)
+        for (int i = 0; i < cardDefs.Count; i++)
         {
             GameObject cgo = Instantiate(queensCardPrefab) as GameObject;
             // set cgo transform parent
@@ -238,13 +239,12 @@ public class SleepingQueens : MonoBehaviour
             card.cardType = CardType.ValueCard;
 
             //Add Decorators
-            foreach(Decorator decko in decorators)
+            foreach (Decorator decko in decorators)
             {
                 GameObject tGO = Instantiate(prefabSprite) as GameObject;
                 SpriteRenderer tSR = tGO.GetComponent<SpriteRenderer>();
 
                 tSR.sprite = GetSpriteByRank(card.value);
-
                 tSR.color = Color.black;
 
                 tSR.sortingOrder = 1;                     // make it render above card
@@ -263,16 +263,53 @@ public class SleepingQueens : MonoBehaviour
 
                 tGO.name = decko.type;
 
-                
-
-                //card.decoGOs.Add(tGO);
+                card.decoratorGos.Add(tGO);
             } // end of foreach decorator creation
 
+            // Add the pips
+            foreach (CardDefinition cdef in cardDefs)
+            {
+                foreach(Decorator pip in cdef.pips)
+                {
+                    GameObject tempGO = Instantiate(prefabSprite) as GameObject;
+                    tempGO.transform.parent = cgo.transform;
+                    tempGO.transform.localPosition = pip.loc;
+
+                    if (pip.flip)
+                    {
+                        tempGO.transform.rotation = Quaternion.Euler(0, 0, 180);
+                    }
+
+                    if (pip.scale != 1)
+                    {
+                        tempGO.transform.localScale = Vector3.one * pip.scale;
+                    }
+
+                    tempGO.name = "pip";
+                    SpriteRenderer tempSR = tempGO.GetComponent<SpriteRenderer>();
+                    tempSR.sprite = GetPipSprite(card.name);
+                    tempSR.sortingOrder = 1;
+                    card.pipGos.Add(tempGO);
+                }
+            }
             cgo.transform.position = GetNewCardPos();
         }
 
+    }
 
+    private Sprite GetPipSprite(string spriteName)
+    {
+        Sprite sprit = null;
 
+        foreach (SpriteDefinition def in pipSprites)
+        {
+            if (def.name.Equals(spriteName))
+            {
+                sprit = def.sprite;
+            }
+        }
+
+        return sprit;
     }
 
     private Sprite GetSpriteByRank(int spriteNumber)
@@ -309,7 +346,7 @@ public class SleepingQueens : MonoBehaviour
     {
         Sprite sprit = null;
 
-        foreach(SpriteDefinition def in queenSprites)
+        foreach (SpriteDefinition def in queenSprites)
         {
             if (def.name.Equals(name))
             {
@@ -323,6 +360,6 @@ public class SleepingQueens : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -14,8 +14,8 @@ public class QueensCard : MonoBehaviour
     public int value = 0;
     public string cardName;
 
-    public List<GameObject> pipGos;
-    public List<GameObject> decoratorGos;
+    public List<GameObject> pipGos = new List<GameObject>();
+    public List<GameObject> decoratorGos = new List<GameObject>();
 
     //public string bannerName;
 

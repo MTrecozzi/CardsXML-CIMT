@@ -294,7 +294,27 @@ MonoBehaviour:
     sprite: {fileID: 21300020, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
   - name: 10
     sprite: {fileID: 21300022, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
-  tempPip: {fileID: 0}
+  pipSprites:
+  - name: 1
+    sprite: {fileID: 21300000, guid: 9cb3a055f8ea8ee4d83269cb1968d071, type: 3}
+  - name: 2
+    sprite: {fileID: 21300000, guid: 48ed590a99f237b4e9ddc1a1a9db8c0e, type: 3}
+  - name: 3
+    sprite: {fileID: 21300000, guid: 1ecc26ad43053f34b97291418a74b3fe, type: 3}
+  - name: 4
+    sprite: {fileID: 21300000, guid: 90a22768b81eee24490363d1c05e9807, type: 3}
+  - name: 5
+    sprite: {fileID: 21300000, guid: d6038dbfe9c33154ea04a7045006e336, type: 3}
+  - name: 6
+    sprite: {fileID: 21300000, guid: 4e1a3d9e54970144e806d9025882f6cf, type: 3}
+  - name: 7
+    sprite: {fileID: 21300000, guid: 67f9aee18aabd044c87629c58410e515, type: 3}
+  - name: 8
+    sprite: {fileID: 21300000, guid: 7aa2a450663ffaf45ac9497816c7634a, type: 3}
+  - name: 9
+    sprite: {fileID: 21300000, guid: 1c6e3a9566bf45a41a598465905bd507, type: 3}
+  - name: 10
+    sprite: {fileID: 21300000, guid: b3d0ab2d8156f6942a08867aa757d4c8, type: 3}
   knight: {fileID: 21300000, guid: 0d4ec7238e3d2da49b5e2839e3b74c3e, type: 3}
   magicWand: {fileID: 21300000, guid: ba5749182d2f478448dd92402519829f, type: 3}
   jester: {fileID: 21300000, guid: 9989e5a8ffa6f794ea60378b7c8c795a, type: 3}
@@ -343,3 +363,4 @@ MonoBehaviour:
   - name: Chess
     sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
   cardDefs: []
+  cardPos: {x: 0, y: 0}
