@@ -38,29 +38,29 @@
 
   <!-- Number Cards -->
   <numberCard value="1">
-    <pip x="0" y="0" z="0" flip="0" scale="1"/>
+    <pip x="0" y="0" z="0" flip="0" scale="3"/>
   </numberCard>
   <numberCard value="2">
-    <pip x="0.5" y="0" z="0" flip="0" scale="1"/>
-    <pip x="-0.5" y="0" z="0" flip="1" scale="1"/>
+    <pip x="0.5" y="0" z="0" flip="0" scale="3"/>
+    <pip x="-0.5" y="0" z="0" flip="1" scale="3"/>
   </numberCard>
   <numberCard value="3">
-    <pip x="0" y="0" z="0" flip="0" scale="1"/>
-    <pip x="0.65" y="0.9" z="0" flip="0" scale="1"/>
-    <pip x="-0.65" y="-0.9" z="0" flip="1" scale="1"/>
+    <pip x="0" y="0" z="0" flip="0" scale="1.25"/>
+    <pip x="0.65" y="0.9" z="0" flip="0" scale="1.25"/>
+    <pip x="-0.65" y="-0.9" z="0" flip="1" scale="1.25"/>
   </numberCard>
   <numberCard value="4">
-    <pip x="-0.55" y="0.45" z="0" flip="1" scale="1"/>
-    <pip x="-0.55" y="-0.9" z="0" flip="1" scale="1"/>
-    <pip x="0.55" y="0.9" z="0" flip="0" scale="1"/>
-    <pip x="0.55" y="-0.45" z="0" flip="0" scale="1"/>
+    <pip x="-0.55" y="0.45" z="0" flip="1" scale="1.5"/>
+    <pip x="-0.55" y="-0.9" z="0" flip="1" scale="1.5"/>
+    <pip x="0.55" y="0.9" z="0" flip="0" scale="1.5"/>
+    <pip x="0.55" y="-0.45" z="0" flip="0" scale="1.5"/>
   </numberCard>
   <numberCard value="5">
-    <pip x="-0.55" y="1" z="0" flip="0" scale="1" rotation="135"/>
-    <pip x="0.55" y="1" z="0" flip="0" scale="1" rotation="45"/>
-    <pip x="0" y="0" z="0" flip="0" scale="1" rotation="0"/>
-    <pip x="-0.55" y="-1" z="0" flip="0" scale="1" rotation="225"/>
-    <pip x="0.55" y="-1" z="0" flip="0" scale="1" rotation="315"/>
+    <pip x="-0.55" y="1" z="0" flip="0" scale="1.25" rotation="135"/>
+    <pip x="0.55" y="1" z="0" flip="0" scale="1.25" rotation="45"/>
+    <pip x="0" y="0" z="0" flip="0" scale="1.25" rotation="0"/>
+    <pip x="-0.55" y="-1" z="0" flip="0" scale="1.25" rotation="225"/>
+    <pip x="0.55" y="-1" z="0" flip="0" scale="1.25" rotation="315"/>
   </numberCard>
   <numberCard value="6">
     <pip x="-0.6" y="0.75" z="0" flip="0" scale="1"/>
@@ -90,26 +90,26 @@
     <pip x="0.7" y="-0.7" z="0" flip="1" scale="1"/>
   </numberCard>
   <numberCard value="9">
-    <pip x="-0.7" y="0.7" z="0" flip="0" scale="1"/>
-    <pip x="-0.7" y="-0.25" z="0" flip="0" scale="1"/>
-    <pip x="-0.7" y="-1.15" z="0" flip="0" scale="1"/>
-    <pip x="0" y="0.925" z="0" flip="0" scale="1"/>
-    <pip x="0" y="0" z="0" flip="0" scale="1"/>
-    <pip x="0" y="-0.925" z="0" flip="0" scale="1"/>
-    <pip x="0.7" y="1.15" z="0" flip="0" scale="1"/>
-    <pip x="0.7" y="0.25" z="0" flip="0" scale="1"/>
-    <pip x="0.7" y="-0.7" z="0" flip="0" scale="1"/>
+    <pip x="-0.7" y="0.7" z="0" flip="0" scale="0.9"/>
+    <pip x="-0.7" y="-0.25" z="0" flip="0" scale="0.9"/>
+    <pip x="-0.7" y="-1.15" z="0" flip="0" scale="0.9"/>
+    <pip x="0" y="0.925" z="0" flip="0" scale="0.9"/>
+    <pip x="0" y="0" z="0" flip="0" scale="0.9"/>
+    <pip x="0" y="-0.925" z="0" flip="0" scale="0.9"/>
+    <pip x="0.7" y="1.15" z="0" flip="0" scale="0.9"/>
+    <pip x="0.7" y="0.25" z="0" flip="0" scale="0.9"/>
+    <pip x="0.7" y="-0.7" z="0" flip="0" scale="0.9"/>
   </numberCard>
   <numberCard value="10">
-    <pip x="-0.7" y="0.75" z="0" flip="1" scale="1"/>
-    <pip x="-0.7" y="0" z="0" flip="1" scale="1"/>
-    <pip x="-0.7" y="-0.75" z="0" flip="1" scale="1"/>
-    <pip x="0" y="1.2" z="0" flip="0" scale="1"/>
-    <pip x="0" y="0.375" z="0" flip="0" scale="1"/>
-    <pip x="0" y="-0.375" z="0" flip="1" scale="1"/>
-    <pip x="0" y="-1.2" z="0" flip="1" scale="1"/>
-    <pip x="0.7" y="0.75" z="0" flip="0" scale="1"/>
-    <pip x="0.7" y="0" z="0" flip="0" scale="1"/>
-    <pip x="0.7" y="-0.75" z="0" flip="0" scale="1"/>
+    <pip x="-0.7" y="0.75" z="0" flip="1" scale="0.9"/>
+    <pip x="-0.7" y="0" z="0" flip="1" scale="0.9"/>
+    <pip x="-0.7" y="-0.75" z="0" flip="1" scale="0.9"/>
+    <pip x="0" y="1.2" z="0" flip="0" scale="0.9"/>
+    <pip x="0" y="0.375" z="0" flip="0" scale="0.9"/>
+    <pip x="0" y="-0.375" z="0" flip="1" scale="0.9"/>
+    <pip x="0" y="-1.2" z="0" flip="1" scale="0.9"/>
+    <pip x="0.7" y="0.75" z="0" flip="0" scale="0.9"/>
+    <pip x="0.7" y="0" z="0" flip="0" scale="0.9"/>
+    <pip x="0.7" y="-0.75" z="0" flip="0" scale="0.9"/>
   </numberCard>
 </xml>
