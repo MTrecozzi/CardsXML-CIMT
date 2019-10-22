@@ -146,6 +146,7 @@ public class Decorator{
 	public Vector3	loc;			// location of sprite on the card
 	public bool		flip = false;	//whether to flip vertically
 	public float 	scale = 1.0f;
+    public float rotation = 0f;
 }
 
 [System.Serializable]

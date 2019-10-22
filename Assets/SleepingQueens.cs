@@ -223,6 +223,12 @@ public class SleepingQueens : MonoBehaviour
                         deco.scale = float.Parse(xPips[j].att("scale"));
                     }
                     cDef.pips.Add(deco);
+
+                    if(xPips[j].HasAtt("rotation"))
+                    {
+                        deco.rotation = float.Parse(xPips[j].att("rotation"));
+                    }
+
                 }
             }
             cardDefs.Add(cDef);
@@ -281,6 +287,11 @@ public class SleepingQueens : MonoBehaviour
                 if (pip.scale != 1)
                 {
                     tempGO.transform.localScale = Vector3.one * pip.scale;
+                }
+
+                if(pip.rotation != 0)
+                {
+                    tempGO.transform.rotation = Quaternion.Euler(0, 0, pip.rotation);
                 }
 
                 tempGO.name = "pip";
