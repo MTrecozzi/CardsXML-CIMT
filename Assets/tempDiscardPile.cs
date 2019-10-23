@@ -21,6 +21,8 @@ public class tempDiscardPile : MonoBehaviour
         Debug.Log("card Added");
 
         card.Reveal();
+
+        card.discarded = true;
         cards.Push(card.gameObject);
         
     }

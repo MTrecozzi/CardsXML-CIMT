@@ -224,7 +224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac12f128e2db44648aa1ad2d9eba5371, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
 --- !u!20 &821019578855417502
 Camera:
   m_ObjectHideFlags: 0
@@ -311,6 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e803ece3452241924c5a643c875ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  demoMode: 1
   deckXML: {fileID: 4900000, guid: c56d1dd0811494a45959594cc7c46544, type: 3}
   xmlr:
     xmlText: 

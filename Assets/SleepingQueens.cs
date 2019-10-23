@@ -13,6 +13,9 @@ public class SpriteDefinition
 
 public class SleepingQueens : MonoBehaviour
 {
+
+    public bool demoMode = true;
+
     [Header("Set in Inspector")]
     public TextAsset deckXML;
     public PT_XMLReader xmlr;
@@ -357,7 +360,11 @@ public class SleepingQueens : MonoBehaviour
             // card.FaceUp = false;
         }
 
-        tempPlayField();
+        if (demoMode)
+        {
+            tempPlayField();
+        }
+        
 
         
 

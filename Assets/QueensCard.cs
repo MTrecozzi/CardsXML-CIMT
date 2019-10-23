@@ -14,6 +14,8 @@ public class QueensCard : MonoBehaviour
     public int value = 0;
     public string cardName;
 
+    public bool discarded = false;
+
     public bool demoMode = false;
 
     public SpriteRenderer cardBack;
@@ -68,6 +70,11 @@ public class QueensCard : MonoBehaviour
         Debug.Log(transform.name);
 
         if (!demoMode)
+        {
+            Reveal();
+        }
+
+        if (!demoMode || discarded)
         {
             return;
         }
