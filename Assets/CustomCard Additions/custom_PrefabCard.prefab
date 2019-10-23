@@ -110,6 +110,7 @@ MonoBehaviour:
   cardType: 1
   value: 0
   cardName: 
+  cardBack: {fileID: 0}
   pipGos: []
   decoratorGos: []
   bannerText: {fileID: 6687399446173855670}
@@ -173,7 +174,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &7953848223875799966
 MonoBehaviour:

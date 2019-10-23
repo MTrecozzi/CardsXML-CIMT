@@ -181,6 +181,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1289827822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1289827823}
+  - component: {fileID: 1289827824}
+  m_Layer: 0
+  m_Name: DiscardPile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1289827823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289827822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1289827824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289827822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac12f128e2db44648aa1ad2d9eba5371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
 --- !u!20 &821019578855417502
 Camera:
   m_ObjectHideFlags: 0
@@ -270,6 +314,9 @@ MonoBehaviour:
   deckXML: {fileID: 4900000, guid: c56d1dd0811494a45959594cc7c46544, type: 3}
   xmlr:
     xmlText: 
+  playableGOs: []
+  queensGOs: []
+  cardGOs: []
   decorators: []
   queensCardPrefab: {fileID: 100000, guid: 3ae7553d828595d42a5eb12dcf78e7b8, type: 3}
   prefabSprite: {fileID: 100000, guid: 12a0355f16a4e3040b7c1daff1c8ed35, type: 3}
@@ -315,6 +362,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1c6e3a9566bf45a41a598465905bd507, type: 3}
   - name: 10
     sprite: {fileID: 21300000, guid: b3d0ab2d8156f6942a08867aa757d4c8, type: 3}
+  cardBackRed: {fileID: 21300000, guid: 1731ff86e896dce4d9688d3be849a909, type: 3}
+  cardBackQueen: {fileID: 21300000, guid: ecabe88e85402b44ba042d30ec67f66a, type: 3}
   knight: {fileID: 21300000, guid: b73ce83b4cc870b45a1b56ae9e68c590, type: 3}
   magicWand: {fileID: 21300000, guid: 4770b18ea540d1948994619fa860300a, type: 3}
   jester: {fileID: 21300000, guid: 3c3c273b1bc4bc24ea796fdf2fa22f0a, type: 3}

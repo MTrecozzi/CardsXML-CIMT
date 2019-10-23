@@ -14,6 +14,10 @@ public class QueensCard : MonoBehaviour
     public int value = 0;
     public string cardName;
 
+    public bool demoMode = false;
+
+    public SpriteRenderer cardBack;
+
     public List<GameObject> pipGos = new List<GameObject>();
     public List<GameObject> decoratorGos = new List<GameObject>();
 
@@ -32,21 +36,60 @@ public class QueensCard : MonoBehaviour
         this.valueText.text = value.ToString();
     }
 
+    public void Hide()
+    {
+        SetCardBack(true);
+    }
+
+    public void Reveal()
+    {
+        SetCardBack(false);
+    }
+
+    private void SetCardBack(bool revealed)
+    {
+        cardBack.enabled = revealed;
+    }
+
     public void Initialize()
     {
         SetValueText(value);
+    }
 
+    public void tempDraw()
+    {
+        tempDiscardPile.discard.AddCard(this);
+        
     }
 
     public void OnMouseDown()
     {
-        Debug.Log(this.bannerText.text);
+
+        Debug.Log(transform.name);
+
+        if (!demoMode)
+        {
+            return;
+        }
+        
+
+        if (cardType != CardType.QueenCard)
+        {
+            Debug.Log("DADASD");
+            tempDraw();
+        }
+            
+        else Reveal();
+
+        
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        Hide();
     }
 
     // Update is called once per frame

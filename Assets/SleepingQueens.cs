@@ -17,6 +17,11 @@ public class SleepingQueens : MonoBehaviour
     public TextAsset deckXML;
     public PT_XMLReader xmlr;
 
+    public List<GameObject> playableGOs;
+    public List<GameObject> queensGOs;
+
+    public List<GameObject> cardGOs;
+
     public List<Decorator> decorators;
 
     public GameObject queensCardPrefab;
@@ -27,6 +32,10 @@ public class SleepingQueens : MonoBehaviour
 
     [Header("Pips")]
     public List<SpriteDefinition> pipSprites;
+
+    [Header("Card Backs")]
+    public Sprite cardBackRed;
+    public Sprite cardBackQueen;
 
 
     [Header("Special Card Sprites")]
@@ -77,7 +86,7 @@ public class SleepingQueens : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         initDictionary();
 
@@ -135,6 +144,8 @@ public class SleepingQueens : MonoBehaviour
                 currentRenderer.sprite = curPip;
             }
 
+            playableGOs.Add(testCard);
+
         }
 
         decorators = new List<Decorator>();
@@ -186,6 +197,8 @@ public class SleepingQueens : MonoBehaviour
 
             testCard.transform.position = GetNewCardPos();
             testCard.gameObject.name = cardData.cardName;
+
+            queensGOs.Add(testCard);
 
             //Debug.Log(cardData.cardName);
 
@@ -300,9 +313,98 @@ public class SleepingQueens : MonoBehaviour
                 tempSR.sortingOrder = 1;
                 card.pipGos.Add(tempGO);
             }
+
+            playableGOs.Add(cgo);
+
             cgo.transform.position = GetNewCardPos();
         }
 
+        foreach (GameObject card in playableGOs)
+        {
+            cardGOs.Add(card);
+        }
+
+        foreach (GameObject card in queensGOs)
+        {
+            cardGOs.Add(card);
+        }
+
+
+        foreach (GameObject card in cardGOs)
+        {
+            GameObject spriteBackGO = Instantiate(prefabSprite) as GameObject;
+            SpriteRenderer spriteBack = spriteBackGO.GetComponent<SpriteRenderer>();
+
+            QueensCard cardMono = card.GetComponent<QueensCard>();
+
+            cardMono.cardBack = spriteBack;
+            
+
+            spriteBack.sprite = cardBackRed;
+
+            if (cardMono.cardType == CardType.QueenCard)
+            {
+                spriteBack.sprite = cardBackQueen;
+            }
+
+            spriteBackGO.transform.SetParent(card.transform);
+            spriteBackGO.transform.localPosition = Vector3.zero;
+            spriteBack.sortingOrder = 3;
+
+            spriteBackGO.name = "back";
+            
+
+            // card.FaceUp = false;
+        }
+
+        tempPlayField();
+
+        
+
+    }
+
+    public void tempPlayField()
+    {
+        // PlayField Sorting, trash code
+        Vector2 queenPos = new Vector2(-3, 3);
+
+        
+
+        foreach (GameObject go in cardGOs)
+        {
+            go.GetComponent<QueensCard>().demoMode = true;
+        }
+
+
+        int curColumnCount = 0;
+        int curRow = 0;
+        for (int i = 0; i < queensGOs.Count; i++)
+        {
+            queensGOs[i].transform.position = queenPos;
+            queenPos.y -= 3.5f;
+
+            curColumnCount++;
+
+            if (curColumnCount > 2)
+            {
+                queenPos.y = 3;
+                queenPos.x += 2.5f;
+                curColumnCount = 0;
+                curRow++;
+
+                if (curRow == 2)
+                {
+                    queenPos.x += 3;
+                }
+
+            }
+
+        }
+
+        foreach(GameObject Card in playableGOs)
+        {
+            Card.transform.position = new Vector2(-8, 5);
+        }
     }
 
     private Sprite GetPipSprite(string spriteName)
