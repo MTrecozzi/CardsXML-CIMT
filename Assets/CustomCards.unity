@@ -315,52 +315,52 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 1c6e3a9566bf45a41a598465905bd507, type: 3}
   - name: 10
     sprite: {fileID: 21300000, guid: b3d0ab2d8156f6942a08867aa757d4c8, type: 3}
-  knight: {fileID: 21300000, guid: 0d4ec7238e3d2da49b5e2839e3b74c3e, type: 3}
-  magicWand: {fileID: 21300000, guid: ba5749182d2f478448dd92402519829f, type: 3}
-  jester: {fileID: 21300000, guid: 9989e5a8ffa6f794ea60378b7c8c795a, type: 3}
-  dragon: {fileID: 21300000, guid: 5149990008eb15d4ea5064f55e260806, type: 3}
-  potion: {fileID: 21300000, guid: 2f574c5fe53dd5e4cb31f948fa7f158d, type: 3}
+  knight: {fileID: 21300000, guid: b73ce83b4cc870b45a1b56ae9e68c590, type: 3}
+  magicWand: {fileID: 21300000, guid: 4770b18ea540d1948994619fa860300a, type: 3}
+  jester: {fileID: 21300000, guid: 3c3c273b1bc4bc24ea796fdf2fa22f0a, type: 3}
+  dragon: {fileID: 21300000, guid: 850d1711e01084f47875bd89355b01c2, type: 3}
+  potion: {fileID: 21300000, guid: 71c3150371f3a224fb2545b13bce86b8, type: 3}
   queenSprites:
   - name: Starfish
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: 5f139b7ffce58644f8d0d8d57d7ed898, type: 3}
   - name: Cat
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: 3a6ef6401d741d6439d787262024b3f6, type: 3}
   - name: Dog
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: d9e4f0e3b485694459fd879a8411bee8, type: 3}
   - name: Peacock
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: 3b83e5d4db4911c49b096706644d37d2, type: 3}
   - name: Rainbow
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: 50ddae033cda41747b645ec5dd8a6c70, type: 3}
   - name: Ladybug
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: b13e51a7136ae8247816c745383a8e70, type: 3}
   - name: Pancake
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: 3958a13c5f27f3043b3c4dc1167c8297, type: 3}
   - name: Cake
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: b489625013650204fbdb4e4467f29344, type: 3}
   - name: Heart
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: 7e3984ea62aefa040928d887b35a73ec, type: 3}
   - name: Sunflower
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: 350ff4e556d725040937f47b8d2538b4, type: 3}
   - name: Rose
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: d041aa0247fe1794a92663d67e23938e, type: 3}
   - name: Moon
-    sprite: {fileID: 21300000, guid: 39b46345b18a61a41a7e359b5862afa0, type: 3}
+    sprite: {fileID: 21300000, guid: ad5e8b7261bb22141934487c7cc51b98, type: 3}
   kingSprites:
   - name: Fire
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: 164a79fe5d317184b901fd54a491f8db, type: 3}
   - name: Turtle
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: 062ad4c62a4e0054da8826f301af07d8, type: 3}
   - name: Hat
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: 990aadd5f1a93204189e577047ba174d, type: 3}
   - name: Bubble-Gum
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: dd5720ea4c36fea44b93d0f5ee7c9b00, type: 3}
   - name: Puzzle
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: ba0d0066c0a349e41ba9b623070bf198, type: 3}
   - name: Cookie
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: ceeb7dbea4d00a549a1cd364cea19245, type: 3}
   - name: Tie-Dye
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: 075fdb613bbc1ac46842bc263b64ff88, type: 3}
   - name: Chess
-    sprite: {fileID: 21300000, guid: de656dfe2eca3634ab9ab6ca279b3b3b, type: 3}
+    sprite: {fileID: 21300000, guid: bb8d8d869bfeada46b5784a506fd4b96, type: 3}
   cardDefs: []
   cardPos: {x: 0, y: 0}
