@@ -15,6 +15,8 @@ public class SleepingQueens1 : MonoBehaviour
 
     public bool demoMode = true;
 
+    public QueensDeck deck;
+
     [Header("Set in Inspector")]
     public TextAsset deckXML;
     public PT_XMLReader xmlr;
@@ -412,6 +414,11 @@ public class SleepingQueens1 : MonoBehaviour
 
             // card.FaceUp = false;
         }
+
+        // Give the Deck the Cards We Created Here
+        deck.queensCards = this.queensGOs;
+        deck.playableCards = this.playableGOs;
+        deck.cards = this.cardGOs;
 
         if (demoMode)
         {

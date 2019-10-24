@@ -56,21 +56,11 @@ public class SleepingQueens : MonoBehaviour
     [Header("King Card Sprites")]
     public List<SpriteDefinition> kingSprites;
 
-    [Header("Number of Each Card Type")]
-    // Sets the number of cards for each card type that will be created
-    public int numKing = 1;
-    public int numQueen = 1;    // Currently completely unused
-    public int numKnight = 4;
-    public int numDragon = 3;
-    public int numPotion = 4;
-    public int numWand = 3;
-    public int numJester = 5;
-    public int numNumber = 4;
-
     public List<CardDefinition> cardDefs;
 
     public Vector2 cardPos;
     int xBorder = 10;
+    int amount;
 
     public Dictionary<string, Sprite> spritesDict = new Dictionary<string, Sprite>();
 
@@ -118,36 +108,75 @@ public class SleepingQueens : MonoBehaviour
         {
             if (demoMode)
             {
-                // There's no way this is the most efficent way to do this, but here we are.
-                if (xPlayables[i].att("type").Equals("knight"))
-                {
-                    CreatePlayableCards(numKnight, xPlayables, i);
-                }
-                else if (xPlayables[i].att("type").Equals("dragon"))
-                {
-                    CreatePlayableCards(numDragon, xPlayables, i);
-                }
-                else if (xPlayables[i].att("type").Equals("potion"))
-                {
-                    CreatePlayableCards(numPotion, xPlayables, i);
-                }
-                else if (xPlayables[i].att("type").Equals("wand"))
-                {
-                    CreatePlayableCards(numWand, xPlayables, i);
-                }
-                else if (xPlayables[i].att("type").Equals("jester"))
-                {
-                    CreatePlayableCards(numJester, xPlayables, i);
-                }
-                else if (xPlayables[i].att("type").Equals("king"))
-                {
-                    CreatePlayableCards(numKing, xPlayables, i);
-                }
-
+                amount = int.Parse(xPlayables[i].att("amount"));
             }
             else
             {
-                CreatePlayableCards(1, xPlayables, i);
+                amount = 1;
+            }
+
+            for (int j = 0; j < amount; j++)
+            {
+                GameObject testCard = Instantiate(queensCardPrefab);
+                QueensCard cardData = testCard.GetComponent<QueensCard>();
+
+                // do this for each pip or decorator in our list of decorators. Create previous code to get a list of decorators.
+                GameObject pip = Instantiate(prefabSprite) as GameObject;
+                SpriteRenderer currentRenderer = pip.GetComponent<SpriteRenderer>();
+
+                currentRenderer.sortingOrder = 1;                     // make it render above card
+                pip.transform.parent = testCard.transform;     // make deco a child of card GO
+                pip.transform.localPosition = Vector3.zero;
+                //pip.transform.localPosition = xtypes[0].att("pos");
+
+                cardData.cardName = xPlayables[i].att("type");
+                cardData.cardType = CardType.PlayableCard;
+                if (!demoMode)
+                {
+                    cardData.SetBannerText(cardData.cardName);
+                }
+                else
+                {
+                    cardData.SetBannerText("");
+                }
+
+
+                Sprite curPip = null;
+
+                if (xPlayables[i].att("type").Equals("king"))
+                {
+                    cardData.SetBannerText(xPlayables[i].att("name") + " King");
+                    curPip = GetKingSprite(xPlayables[i].att("name"));
+                    cardData.cardType = CardType.KingCard;
+
+                    // Set banner pip
+                    GameObject bannerPip = Instantiate(prefabSprite) as GameObject;
+                    SpriteRenderer bannerRend = bannerPip.GetComponent<SpriteRenderer>();
+
+                    bannerRend.sortingOrder = 2;
+                    bannerPip.transform.parent = testCard.transform;
+                    bannerPip.transform.localPosition = new Vector3(0, -1.24f, 0);
+
+                    if (bannerSprite != null)
+                    {
+                        bannerRend.sprite = bannerSprite;
+                    }
+                }
+
+                else curPip = spritesDict[cardData.cardName];
+
+                testCard.transform.position = GetNewCardPos();
+
+                testCard.gameObject.name = cardData.cardName;
+
+                //Debug.Log(cardData.cardName);
+
+                if (curPip != null)
+                {
+                    currentRenderer.sprite = curPip;
+                }
+
+                playableGOs.Add(testCard);
             }
         }
 
@@ -168,7 +197,7 @@ public class SleepingQueens : MonoBehaviour
             deco.loc.z = float.Parse(xDecos[i].att("z"));
             decorators.Add(deco);
         }
-        
+
 
         // Create QueenCards
         PT_XMLHashList xQueens = xmlr.xml["xml"][0]["queenCard"];
@@ -231,6 +260,15 @@ public class SleepingQueens : MonoBehaviour
 
         for (int i = 0; i < xNumberCards.Count; i++)
         {
+            if (demoMode)
+            {
+                amount = int.Parse(xNumberCards[i].att("amount"));
+            }
+            else
+            {
+                amount = 1;
+            }
+
             CardDefinition cDef = new CardDefinition();
             cDef.rank = int.Parse(xNumberCards[i].att("value"));
 
@@ -265,14 +303,78 @@ public class SleepingQueens : MonoBehaviour
 
         foreach (CardDefinition cdef in cardDefs)
         {
-            if (demoMode)
+            for (int k = 0; k < amount; k++)
             {
-                CreateNumberCards(numNumber, cdef);
+                GameObject cgo = Instantiate(queensCardPrefab) as GameObject;
+                // set cgo transform parent
+                QueensCard card = cgo.GetComponent<QueensCard>();
+
+                card.name = cdef.rank.ToString();
+                card.value = cdef.rank;
+                card.cardType = CardType.ValueCard;
+
+                //Add Decorators
+                foreach (Decorator decko in decorators)
+                {
+                    GameObject tGO = Instantiate(prefabSprite) as GameObject;
+                    SpriteRenderer tSR = tGO.GetComponent<SpriteRenderer>();
+
+                    tSR.sprite = GetSpriteByRank(card.value);
+                    tSR.color = Color.black;
+
+                    tSR.sortingOrder = 1;                     // make it render above card
+                    tGO.transform.parent = cgo.transform;     // make deco a child of card GO
+                    tGO.transform.localPosition = decko.loc;   // set the deco's local position
+
+                    if (decko.flip)
+                    {
+                        tGO.transform.rotation = Quaternion.Euler(0, 0, 180);
+                    }
+
+                    if (decko.scale != 1)
+                    {
+                        tGO.transform.localScale = Vector3.one * decko.scale;
+                    }
+
+                    tGO.name = decko.type;
+
+                    card.decoratorGos.Add(tGO);
+                } // end of foreach decorator creation
+
+                // Add the pips
+                foreach (Decorator pip in cdef.pips)
+                {
+                    GameObject tempGO = Instantiate(prefabSprite) as GameObject;
+                    tempGO.transform.parent = cgo.transform;
+                    tempGO.transform.localPosition = pip.loc;
+
+                    if (pip.flip)
+                    {
+                        tempGO.transform.rotation = Quaternion.Euler(0, 0, 180);
+                    }
+
+                    if (pip.scale != 1)
+                    {
+                        tempGO.transform.localScale = Vector3.one * pip.scale;
+                    }
+
+                    if (pip.rotation != 0)
+                    {
+                        tempGO.transform.rotation = Quaternion.Euler(0, 0, pip.rotation);
+                    }
+
+                    tempGO.name = "pip";
+                    SpriteRenderer tempSR = tempGO.GetComponent<SpriteRenderer>();
+                    tempSR.sprite = GetPipSprite(card.name);
+                    tempSR.sortingOrder = 1;
+                    card.pipGos.Add(tempGO);
+                }
+
+                playableGOs.Add(cgo);
+
+                cgo.transform.position = GetNewCardPos();
             }
-            else
-            {
-                CreateNumberCards(1, cdef);
-            }
+
         }
 
         foreach (GameObject card in playableGOs)
@@ -370,149 +472,6 @@ public class SleepingQueens : MonoBehaviour
         }
     } // end of  tempPlayField method
 
-    private void CreatePlayableCards(int totalCards, PT_XMLHashList xPlayables, int index)
-    {
-        for (int i = 0; i < totalCards; i++)
-        {
-            GameObject testCard = Instantiate(queensCardPrefab);
-            QueensCard cardData = testCard.GetComponent<QueensCard>();
-
-            // do this for each pip or decorator in our list of decorators. Create previous code to get a list of decorators.
-            GameObject pip = Instantiate(prefabSprite) as GameObject;
-            SpriteRenderer currentRenderer = pip.GetComponent<SpriteRenderer>();
-
-            currentRenderer.sortingOrder = 1;                     // make it render above card
-            pip.transform.parent = testCard.transform;     // make deco a child of card GO
-            pip.transform.localPosition = Vector3.zero;
-            //pip.transform.localPosition = xtypes[0].att("pos");
-
-            cardData.cardName = xPlayables[index].att("type");
-            cardData.cardType = CardType.PlayableCard;
-            if (!demoMode)
-            {
-                cardData.SetBannerText(cardData.cardName);
-            }
-            else
-            {
-                cardData.SetBannerText("");
-            }
-
-
-            Sprite curPip = null;
-
-            if (xPlayables[index].att("type").Equals("king"))
-            {
-                cardData.SetBannerText(xPlayables[index].att("name") + " King");
-                curPip = GetKingSprite(xPlayables[index].att("name"));
-                cardData.cardType = CardType.KingCard;
-
-                // Set banner pip
-                GameObject bannerPip = Instantiate(prefabSprite) as GameObject;
-                SpriteRenderer bannerRend = bannerPip.GetComponent<SpriteRenderer>();
-
-                bannerRend.sortingOrder = 2;
-                bannerPip.transform.parent = testCard.transform;
-                bannerPip.transform.localPosition = new Vector3(0, -1.24f, 0);
-
-                if (bannerSprite != null)
-                {
-                    bannerRend.sprite = bannerSprite;
-                }
-            }
-
-            else curPip = spritesDict[cardData.cardName];
-
-            testCard.transform.position = GetNewCardPos();
-
-            testCard.gameObject.name = cardData.cardName;
-
-            //Debug.Log(cardData.cardName);
-
-            if (curPip != null)
-            {
-                currentRenderer.sprite = curPip;
-            }
-
-            playableGOs.Add(testCard);
-
-        } // end of for loop
-    } // End of CreatePlayableCards method
-
-    private void CreateNumberCards(int totalCards, CardDefinition cdef)
-    {
-        for(int i=0; i < totalCards; i++)
-        {
-            GameObject cgo = Instantiate(queensCardPrefab) as GameObject;
-            // set cgo transform parent
-            QueensCard card = cgo.GetComponent<QueensCard>();
-
-            card.name = cdef.rank.ToString();
-            card.value = cdef.rank;
-            card.cardType = CardType.ValueCard;
-
-            //Add Decorators
-            foreach (Decorator decko in decorators)
-            {
-                GameObject tGO = Instantiate(prefabSprite) as GameObject;
-                SpriteRenderer tSR = tGO.GetComponent<SpriteRenderer>();
-
-                tSR.sprite = GetSpriteByRank(card.value);
-                tSR.color = Color.black;
-
-                tSR.sortingOrder = 1;                     // make it render above card
-                tGO.transform.parent = cgo.transform;     // make deco a child of card GO
-                tGO.transform.localPosition = decko.loc;   // set the deco's local position
-
-                if (decko.flip)
-                {
-                    tGO.transform.rotation = Quaternion.Euler(0, 0, 180);
-                }
-
-                if (decko.scale != 1)
-                {
-                    tGO.transform.localScale = Vector3.one * decko.scale;
-                }
-
-                tGO.name = decko.type;
-
-                card.decoratorGos.Add(tGO);
-            } // end of foreach decorator creation
-
-            // Add the pips
-            foreach (Decorator pip in cdef.pips)
-            {
-                GameObject tempGO = Instantiate(prefabSprite) as GameObject;
-                tempGO.transform.parent = cgo.transform;
-                tempGO.transform.localPosition = pip.loc;
-
-                if (pip.flip)
-                {
-                    tempGO.transform.rotation = Quaternion.Euler(0, 0, 180);
-                }
-
-                if (pip.scale != 1)
-                {
-                    tempGO.transform.localScale = Vector3.one * pip.scale;
-                }
-
-                if (pip.rotation != 0)
-                {
-                    tempGO.transform.rotation = Quaternion.Euler(0, 0, pip.rotation);
-                }
-
-                tempGO.name = "pip";
-                SpriteRenderer tempSR = tempGO.GetComponent<SpriteRenderer>();
-                tempSR.sprite = GetPipSprite(card.name);
-                tempSR.sortingOrder = 1;
-                card.pipGos.Add(tempGO);
-            }
-
-            playableGOs.Add(cgo);
-
-            cgo.transform.position = GetNewCardPos();
-        } // end of for loop
-    } // End of CreateNumberCards method
-
     private Sprite GetPipSprite(string spriteName)
     {
         Sprite sprit = null;
@@ -577,7 +536,7 @@ public class SleepingQueens : MonoBehaviour
     {
         List<GameObject> shuffledDeck = new List<GameObject>();
         int newIndex;
-        
+
         while (playableGOs.Count > 0)
         {
             newIndex = UnityEngine.Random.Range(0, playableGOs.Count);
