@@ -61,26 +61,7 @@ public class QueensDeck : MonoBehaviour {
             }
         }
 
-        // Create an XMLHashList of our defined Queen Positions
-        PT_XMLHashList queenPositions = xmlr.xml["xml"][0]["queenSlot"];
-
-        for (int t = 0; t < queenPositions.Count; t++)
-        {
-            Vector2 curPos = Vector2.zero;
-
-            float x;
-            float y;
-
-            // the x position of our current vector2 = the x position of our current definition.
-            x = float.Parse(queenPositions[t].att("x"));
-            y = float.Parse(queenPositions[t].att("y"));
-
-            curPos = new Vector2(x, y);
-
-            this.queensPositions.Add(curPos);
-        }
-
-        PlaceQueenCards();
+        
 
         tempDiscardPile.discard.transform.position = discardPilePos;
 
@@ -103,6 +84,28 @@ public class QueensDeck : MonoBehaviour {
         {
             drawStack.Push(playableCards[i]);
         }
+
+
+        // Create an XMLHashList of our defined Queen Positions
+        PT_XMLHashList queenPositions = xmlr.xml["xml"][0]["queenSlot"];
+
+        for (int t = 0; t < queenPositions.Count; t++)
+        {
+            Vector2 curPos = Vector2.zero;
+
+            float x;
+            float y;
+
+            // the x position of our current vector2 = the x position of our current definition.
+            x = float.Parse(queenPositions[t].att("x"));
+            y = float.Parse(queenPositions[t].att("y"));
+
+            curPos = new Vector2(x, y);
+
+            this.queensPositions.Add(curPos);
+        }
+
+        PlaceQueenCards();
     }
 
     public void PlaceQueenCards()
