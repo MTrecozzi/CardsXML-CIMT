@@ -58,12 +58,6 @@ public class QueensCard : MonoBehaviour
         SetValueText(value);
     }
 
-    public void tempDraw()
-    {
-        tempDiscardPile.discard.AddCard(this);
-        
-    }
-
     public void OnMouseDown()
     {
 
@@ -74,7 +68,7 @@ public class QueensCard : MonoBehaviour
             Reveal();
         }
 
-        if (!demoMode || discarded)
+        if (discarded)
         {
             return;
         }
@@ -83,7 +77,7 @@ public class QueensCard : MonoBehaviour
         if (cardType != CardType.QueenCard)
         {
             //Debug.Log("DADASD");
-            tempDraw();
+            //tempDraw();
         }
             
         else Reveal();

@@ -234,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1392317943}
   - component: {fileID: 1392317942}
+  - component: {fileID: 1392317944}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
@@ -256,9 +257,11 @@ MonoBehaviour:
   cards: []
   playableCards: []
   queensCards: []
+  discardPile: {fileID: 0}
   layoutXML: {fileID: 4900000, guid: 61f3f05951a2f4d98b35bddbc7549908, type: 3}
   xmlr:
     xmlText: 
+  drawClick: {fileID: 1392317944}
 --- !u!4 &1392317943
 Transform:
   m_ObjectHideFlags: 0
@@ -273,6 +276,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1392317944
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392317941}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5, y: 3.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!20 &821019578855417502
 Camera:
   m_ObjectHideFlags: 0
@@ -359,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e803ece3452241924c5a643c875ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  demoMode: 0
+  demoMode: 1
   deck: {fileID: 1392317942}
   deckXML: {fileID: 4900000, guid: c56d1dd0811494a45959594cc7c46544, type: 3}
   xmlr:
