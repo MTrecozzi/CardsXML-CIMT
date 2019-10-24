@@ -110,6 +110,8 @@ MonoBehaviour:
   cardType: 1
   value: 0
   cardName: 
+  discarded: 0
+  demoMode: 0
   cardBack: {fileID: 0}
   pipGos: []
   decoratorGos: []

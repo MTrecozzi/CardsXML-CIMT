@@ -11,28 +11,68 @@
   <playableCard type="jester"/>
 
   <!-- King Cards -->
-  <playableCard type="king" name="Fire"/>
-  <playableCard type="king" name="Turtle"/>
-  <playableCard type="king" name="Hat"/>
-  <playableCard type="king" name="Bubble-Gum"/>
-  <playableCard type="king" name="Puzzle"/>
-  <playableCard type="king" name="Cookie"/>
-  <playableCard type="king" name="Tie-Dye"/>
-  <playableCard type="king" name="Chess"/>
+  <playableCard type="king" name="Fire">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
+  <playableCard type="king" name="Turtle">
+  <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
+  <playableCard type="king" name="Hat">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
+  <playableCard type="king" name="Bubble-Gum">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
+  <playableCard type="king" name="Puzzle">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
+  <playableCard type="king" name="Cookie">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
+  <playableCard type="king" name="Tie-Dye">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
+  <playableCard type="king" name="Chess">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </playableCard>
 
   <!-- Queen Cards -->
-  <queenCard name="Starfish" value="5"/>
-  <queenCard name="Cat" value="15"/>
-  <queenCard name="Dog" value="15"/>
-  <queenCard name="Peacock" value="10"/>
-  <queenCard name="Rainbow" value="5"/>
-  <queenCard name="Ladybug" value="10"/>
-  <queenCard name="Pancake" value="15"/>
-  <queenCard name="Cake" value="5"/>
-  <queenCard name="Heart" value="20"/>
-  <queenCard name="Sunflower" value="10"/>
-  <queenCard name="Rose" value="5"/>
-  <queenCard name="Moon" value="10"/>
+  <queenCard name="Starfish" value="5">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+    </queenCard>
+  <queenCard name="Cat" value="15">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Dog" value="15">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Peacock" value="10">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Rainbow" value="5">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Ladybug" value="10">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Pancake" value="15">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Cake" value="5">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Heart" value="20">
+  <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Sunflower" value="10">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Rose" value="5">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
+  <queenCard name="Moon" value="10">
+    <pip x="0" y="-1.302" z="0" scale ="1"/>
+  </queenCard>
 
 
   <!-- Number Cards -->
@@ -40,8 +80,8 @@
     <pip x="0" y="0" z="0" flip="0" scale="3"/>
   </numberCard>
   <numberCard value="2">
-    <pip x="0.5" y="0" z="0" flip="0" scale="3"/>
-    <pip x="-0.5" y="0" z="0" flip="1" scale="3"/>
+    <pip x="0.55" y="0" z="0" flip="0" scale="3"/>
+    <pip x="-0.55" y="0" z="0" flip="1" scale="3"/>
   </numberCard>
   <numberCard value="3">
     <pip x="0" y="0" z="0" flip="0" scale="1.25"/>
