@@ -4,63 +4,63 @@
   <decorator type="number" x="0.75" y="-1.35" z="0" flip="1" scale="1"/>
   
   <!-- Basic Cards -->
-  <playableCard type="knight"/>
-  <playableCard type="dragon"/>
-  <playableCard type="wand"/>
-  <playableCard type="potion"/>
-  <playableCard type="jester"/>
+  <playableCard type="knight" amount="4"/>
+  <playableCard type="dragon" amount="3"/>
+  <playableCard type="wand" amount="4"/>
+  <playableCard type="potion" amount="4"/>
+  <playableCard type="jester" amount="5"/>
 
   <!-- King Cards -->
-  <playableCard type="king" name="Fire"/>
-  <playableCard type="king" name="Turtle"/>
-  <playableCard type="king" name="Hat"/>
-  <playableCard type="king" name="Bubble-Gum"/>
-  <playableCard type="king" name="Puzzle"/>
-  <playableCard type="king" name="Cookie"/>
-  <playableCard type="king" name="Tie-Dye"/>
-  <playableCard type="king" name="Chess"/>
+  <playableCard type="king" name="Fire" amount="1"/>
+  <playableCard type="king" name="Turtle" amount="1"/>
+  <playableCard type="king" name="Hat" amount="1"/>
+  <playableCard type="king" name="Bubble-Gum" amount="1"/>
+  <playableCard type="king" name="Puzzle" amount="1"/>
+  <playableCard type="king" name="Cookie" amount="1"/>
+  <playableCard type="king" name="Tie-Dye" amount="1"/>
+  <playableCard type="king" name="Chess" amount="1"/>
    
   <!-- Queen Cards -->
-  <queenCard name="Starfish" value="5"/>
-  <queenCard name="Cat" value="15"/>
-  <queenCard name="Dog" value="15"/>
-  <queenCard name="Peacock" value="10"/>
-  <queenCard name="Rainbow" value="5"/>
-  <queenCard name="Ladybug" value="10"/>
-  <queenCard name="Pancake" value="15"/>
-  <queenCard name="Cake" value="5"/>
-  <queenCard name="Heart" value="20"/>
-  <queenCard name="Sunflower" value="10"/>
-  <queenCard name="Rose" value="5"/>
-  <queenCard name="Moon" value="10"/>
+  <queenCard name="Starfish" value="5" amount="1"/>
+  <queenCard name="Cat" value="15" amount="1"/>
+  <queenCard name="Dog" value="15" amount="1"/>
+  <queenCard name="Peacock" value="10" amount="1"/>
+  <queenCard name="Rainbow" value="5" amount="1"/>
+  <queenCard name="Ladybug" value="10" amount="1"/>
+  <queenCard name="Pancake" value="15" amount="1"/>
+  <queenCard name="Cake" value="5" amount="1"/>
+  <queenCard name="Heart" value="20" amount="1"/>
+  <queenCard name="Sunflower" value="10" amount="1"/>
+  <queenCard name="Rose" value="5" amount="1"/>
+  <queenCard name="Moon" value="10" amount="1"/>
 
   <!-- Number Cards -->
-  <numberCard value="1">
+  <numberCard value="1" amount="4">
     <pip x="0" y="0" z="0" flip="0" scale="3"/>
   </numberCard>
-  <numberCard value="2">
+  <numberCard value="2"  amount="4">
     <pip x="0.55" y="0" z="0" flip="0" scale="3"/>
     <pip x="-0.55" y="0" z="0" flip="1" scale="3"/>
   </numberCard>
-  <numberCard value="3">
+  <numberCard value="3"  amount="4">
     <pip x="0" y="0" z="0" flip="0" scale="1.25"/>
     <pip x="0.65" y="0.9" z="0" flip="0" scale="1.25"/>
     <pip x="-0.65" y="-0.9" z="0" flip="1" scale="1.25"/>
   </numberCard>
-  <numberCard value="4">
+  <numberCard value="4"  amount="4">
     <pip x="-0.55" y="0.45" z="0" flip="1" scale="1.5"/>
     <pip x="-0.55" y="-0.9" z="0" flip="1" scale="1.5"/>
     <pip x="0.55" y="0.9" z="0" flip="0" scale="1.5"/>
     <pip x="0.55" y="-0.45" z="0" flip="0" scale="1.5"/>
   </numberCard>
-  <numberCard value="5">
+  <numberCard value="5"  amount="4">
     <pip x="-0.55" y="1" z="0" flip="0" scale="1.25" rotation="135"/>
     <pip x="0.55" y="1" z="0" flip="0" scale="1.25" rotation="45"/>
     <pip x="0" y="0" z="0" flip="0" scale="1.25" rotation="0"/>
     <pip x="-0.55" y="-1" z="0" flip="0" scale="1.25" rotation="225"/>
     <pip x="0.55" y="-1" z="0" flip="0" scale="1.25" rotation="315"/>
   </numberCard>
-  <numberCard value="6">
+  <numberCard value="6"  amount="4">
     <pip x="-0.6" y="0.75" z="0" flip="0" scale="1"/>
     <pip x="-0.6" y="-0.2" z="0" flip="0" scale="1"/>
     <pip x="-0.6" y="-1.15" z="0" flip="0" scale="1"/>
@@ -68,7 +68,7 @@
     <pip x="0.6" y="0.2" z="0" flip="1" scale="1"/>
     <pip x="0.6" y="-0.75" z="0" flip="1" scale="1"/>
   </numberCard>
-  <numberCard value="7">
+  <numberCard value="7"  amount="4">
     <pip x="-0.7" y="0.7" z="0" flip="0" scale="1"/>
     <pip x="-0.7" y="-0.25" z="0" flip="0" scale="1"/>
     <pip x="-0.7" y="-1.15" z="0" flip="0" scale="1"/>
@@ -77,7 +77,7 @@
     <pip x="0.7" y="0.25" z="0" flip="1" scale="1"/>
     <pip x="0.7" y="-0.7" z="0" flip="1" scale="1"/>
   </numberCard>
-  <numberCard value="8">
+  <numberCard value="8"  amount="4">
     <pip x="-0.7" y="0.7" z="0" flip="0" scale="1"/>
     <pip x="-0.7" y="-0.25" z="0" flip="0" scale="1"/>
     <pip x="-0.7" y="-1.15" z="0" flip="0" scale="1"/>
@@ -87,7 +87,7 @@
     <pip x="0.7" y="0.25" z="0" flip="1" scale="1"/>
     <pip x="0.7" y="-0.7" z="0" flip="1" scale="1"/>
   </numberCard>
-  <numberCard value="9">
+  <numberCard value="9"  amount="4">
     <pip x="-0.7" y="0.7" z="0" flip="0" scale="0.9"/>
     <pip x="-0.7" y="-0.25" z="0" flip="0" scale="0.9"/>
     <pip x="-0.7" y="-1.15" z="0" flip="0" scale="0.9"/>
@@ -98,7 +98,7 @@
     <pip x="0.7" y="0.25" z="0" flip="0" scale="0.9"/>
     <pip x="0.7" y="-0.7" z="0" flip="0" scale="0.9"/>
   </numberCard>
-  <numberCard value="10">
+  <numberCard value="10"  amount="4">
     <pip x="-0.7" y="0.75" z="0" flip="1" scale="0.9"/>
     <pip x="-0.7" y="0" z="0" flip="1" scale="0.9"/>
     <pip x="-0.7" y="-0.75" z="0" flip="1" scale="0.9"/>
