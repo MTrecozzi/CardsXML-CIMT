@@ -3,7 +3,7 @@
 	<!-- In the XML below, type is the type of the slot-->
 	<!-- x and y set position -->
 
-  <queenSlot x="-3" y="-3"/>
+  <queenSlot x="-3" y="3"/>
   <queenSlot x="-3" y="-1"/>
   <queenSlot x="-3" y="-5"/>
   <queenSlot x="0" y="3"/>
@@ -12,7 +12,7 @@
   <queenSlot x="6" y="3"/>
   <queenSlot x="6" y="-1"/>
   <queenSlot x="6" y="-5"/>
-  <queenSlot x="9" y="-1"/>
+  <queenSlot x="9" y="3"/>
   <queenSlot x="9" y="-1"/>
   <queenSlot x="9" y="-5"/>
 
