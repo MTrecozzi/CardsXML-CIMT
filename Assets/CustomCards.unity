@@ -341,6 +341,7 @@ MonoBehaviour:
     sprite: {fileID: 21300020, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
   - name: 10
     sprite: {fileID: 21300022, guid: a3dfadce2ec324208b9305ffd5119ba8, type: 3}
+  bannerSprite: {fileID: 21300000, guid: e6469e590b56ef64fbb7d2d188c682b8, type: 3}
   pipSprites:
   - name: 1
     sprite: {fileID: 21300000, guid: 9cb3a055f8ea8ee4d83269cb1968d071, type: 3}
@@ -411,5 +412,13 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 075fdb613bbc1ac46842bc263b64ff88, type: 3}
   - name: Chess
     sprite: {fileID: 21300000, guid: bb8d8d869bfeada46b5784a506fd4b96, type: 3}
+  numKing: 1
+  numQueen: 1
+  numKnight: 4
+  numDragon: 3
+  numPotion: 4
+  numWand: 3
+  numJester: 5
+  numNumber: 4
   cardDefs: []
   cardPos: {x: 0, y: 0}
