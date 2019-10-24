@@ -1,0 +1,26 @@
+<xml>
+	<!-- This file holds info for laying out the Sleeping Queends card game. -->
+	<!-- In the XML below, type is the type of the slot-->
+	<!-- x and y set position -->
+
+  <queenSlot x="-3" y="-3"/>
+  <queenSlot x="-3" y="-1"/>
+  <queenSlot x="-3" y="-5"/>
+  <queenSlot x="0" y="3"/>
+  <queenSlot x="0" y="-1"/>
+  <queenSlot x="0" y="-5"/>
+  <queenSlot x="6" y="3"/>
+  <queenSlot x="6" y="-1"/>
+  <queenSlot x="6" y="-5"/>
+  <queenSlot x="9" y="-1"/>
+  <queenSlot x="9" y="-1"/>
+  <queenSlot x="9" y="-5"/>
+
+  <!-- This positions the draw pile and staggers it -->
+	<slot type="drawpile" x="-12" y="4" xstagger="0.03" layer="4"/>
+	
+	<!-- This positions the discard pile and target card -->
+	<slot type="discardpile" x="-12" y="-2" layer="5"/>
+	
+</xml>
+	
