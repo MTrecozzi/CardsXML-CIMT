@@ -278,6 +278,8 @@ public class SleepingQueens : MonoBehaviour
             cardGOs.Add(card);
         }
 
+        Shuffle(ref playableGOs);
+
         foreach (GameObject card in queensGOs)
         {
             cardGOs.Add(card);
@@ -564,6 +566,20 @@ public class SleepingQueens : MonoBehaviour
         return sprit;
     }
 
+    private void Shuffle(ref List<GameObject> playableGOs)
+    {
+        List<GameObject> shuffledDeck = new List<GameObject>();
+        int newIndex;
+        
+        while (playableGOs.Count > 0)
+        {
+            newIndex = UnityEngine.Random.Range(0, playableGOs.Count);
+            shuffledDeck.Add(playableGOs[newIndex]);
+            playableGOs.RemoveAt(newIndex);
+        }
+
+        playableGOs = shuffledDeck;
+    }
     // Update is called once per frame
     void Update()
     {

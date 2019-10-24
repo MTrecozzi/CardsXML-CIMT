@@ -67,7 +67,7 @@ public class QueensCard : MonoBehaviour
     public void OnMouseDown()
     {
 
-        Debug.Log(transform.name);
+        //Debug.Log(transform.name);
 
         if (!demoMode)
         {
@@ -82,7 +82,7 @@ public class QueensCard : MonoBehaviour
 
         if (cardType != CardType.QueenCard)
         {
-            Debug.Log("DADASD");
+            //Debug.Log("DADASD");
             tempDraw();
         }
             
