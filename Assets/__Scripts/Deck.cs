@@ -19,7 +19,6 @@ public class Deck : MonoBehaviour {
 	public Sprite cardFront;
 	public Sprite cardFrontGold;
 	
-	
 	// Prefabs
 	public GameObject prefabSprite;
 	public GameObject prefabCard;
