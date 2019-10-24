@@ -8,7 +8,6 @@ public class SpriteDefinition
 {
     public string name;
     public Sprite sprite;
-
 }
 
 public class SleepingQueens : MonoBehaviour
@@ -34,7 +33,7 @@ public class SleepingQueens : MonoBehaviour
     public List<SpriteDefinition> rankSprites;
 
     [Header("Pips")]
-    public Sprite bannerSprite;
+    public Sprite bannerSprite;     // No idea where else to put this
     public List<SpriteDefinition> pipSprites;
 
     [Header("Card Backs")]
@@ -82,7 +81,6 @@ public class SleepingQueens : MonoBehaviour
         spritesDict.Add("jester", jester);
         spritesDict.Add("potion", potion);
         spritesDict.Add("dragon", dragon);
-
     }
 
     public Vector2 GetNewCardPos()
@@ -168,7 +166,7 @@ public class SleepingQueens : MonoBehaviour
             deco.loc.z = float.Parse(xDecos[i].att("z"));
             decorators.Add(deco);
         }
-        Debug.Log(decorators.Count);
+        
 
         // Create QueenCards
         PT_XMLHashList xQueens = xmlr.xml["xml"][0]["queenCard"];
@@ -220,8 +218,9 @@ public class SleepingQueens : MonoBehaviour
 
             if (curPip != null)
                 currentRenderer.sprite = curPip;
-        }
+        } // end of for loop for queen card creation
 
+        // Create number cards
         cardDefs = new List<CardDefinition>();
         // first we reference our xml NumberCard Definitions
         PT_XMLHashList xNumberCards = xmlr.xml["xml"][0]["numberCard"];
@@ -316,11 +315,7 @@ public class SleepingQueens : MonoBehaviour
         {
             tempPlayField();
         }
-
-
-
-
-    }
+    } // end of Awake method
 
     public void tempPlayField()
     {
@@ -364,7 +359,7 @@ public class SleepingQueens : MonoBehaviour
         {
             Card.transform.position = new Vector2(-8, 5);
         }
-    }
+    } // end of  tempPlayField method
 
     private void CreatePlayableCards(int totalCards, PT_XMLHashList xPlayables, int index)
     {
@@ -431,8 +426,8 @@ public class SleepingQueens : MonoBehaviour
 
             playableGOs.Add(testCard);
 
-        }
-    }
+        } // end of for loop
+    } // End of CreatePlayableCards method
 
     private void CreateNumberCards(int totalCards, CardDefinition cdef)
     {
@@ -506,8 +501,8 @@ public class SleepingQueens : MonoBehaviour
             playableGOs.Add(cgo);
 
             cgo.transform.position = GetNewCardPos();
-        }
-    }
+        } // end of for loop
+    } // End of CreateNumberCards method
 
     private Sprite GetPipSprite(string spriteName)
     {
