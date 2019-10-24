@@ -57,7 +57,7 @@ public class SleepingQueens : MonoBehaviour
 
     [Header("Number of Each Card Type")]
     public int numKing = 1;
-    public int numQueen = 1;
+    public int numQueen = 1;    // Currently completely unused
     public int numKnight = 4;
     public int numDragon = 3;
     public int numPotion = 4;
@@ -119,33 +119,33 @@ public class SleepingQueens : MonoBehaviour
             {
                 if (xPlayables[i].att("type").Equals("knight"))
                 {
-                    CreateMultiplePlayableCards(numKnight, xPlayables, i);
+                    CreatePlayableCards(numKnight, xPlayables, i);
                 }
                 else if (xPlayables[i].att("type").Equals("dragon"))
                 {
-                    CreateMultiplePlayableCards(numDragon, xPlayables, i);
+                    CreatePlayableCards(numDragon, xPlayables, i);
                 }
                 else if (xPlayables[i].att("type").Equals("potion"))
                 {
-                    CreateMultiplePlayableCards(numPotion, xPlayables, i);
+                    CreatePlayableCards(numPotion, xPlayables, i);
                 }
                 else if (xPlayables[i].att("type").Equals("wand"))
                 {
-                    CreateMultiplePlayableCards(numWand, xPlayables, i);
+                    CreatePlayableCards(numWand, xPlayables, i);
                 }
                 else if (xPlayables[i].att("type").Equals("jester"))
                 {
-                    CreateMultiplePlayableCards(numJester, xPlayables, i);
+                    CreatePlayableCards(numJester, xPlayables, i);
                 }
                 else if (xPlayables[i].att("type").Equals("king"))
                 {
-                    CreateMultiplePlayableCards(numKing, xPlayables, i);
+                    CreatePlayableCards(numKing, xPlayables, i);
                 }
 
             }
             else
             {
-                CreateMultiplePlayableCards(1, xPlayables, i);
+                CreatePlayableCards(1, xPlayables, i);
             }
         }
 
@@ -260,74 +260,14 @@ public class SleepingQueens : MonoBehaviour
 
         foreach (CardDefinition cdef in cardDefs)
         {
-            GameObject cgo = Instantiate(queensCardPrefab) as GameObject;
-            // set cgo transform parent
-            QueensCard card = cgo.GetComponent<QueensCard>();
-
-            card.name = cdef.rank.ToString();
-            card.value = cdef.rank;
-            card.cardType = CardType.ValueCard;
-
-            //Add Decorators
-            foreach (Decorator decko in decorators)
+            if (demoMode)
             {
-                GameObject tGO = Instantiate(prefabSprite) as GameObject;
-                SpriteRenderer tSR = tGO.GetComponent<SpriteRenderer>();
-
-                tSR.sprite = GetSpriteByRank(card.value);
-                tSR.color = Color.black;
-
-                tSR.sortingOrder = 1;                     // make it render above card
-                tGO.transform.parent = cgo.transform;     // make deco a child of card GO
-                tGO.transform.localPosition = decko.loc;   // set the deco's local position
-
-                if (decko.flip)
-                {
-                    tGO.transform.rotation = Quaternion.Euler(0, 0, 180);
-                }
-
-                if (decko.scale != 1)
-                {
-                    tGO.transform.localScale = Vector3.one * decko.scale;
-                }
-
-                tGO.name = decko.type;
-
-                card.decoratorGos.Add(tGO);
-            } // end of foreach decorator creation
-
-            // Add the pips
-            foreach (Decorator pip in cdef.pips)
-            {
-                GameObject tempGO = Instantiate(prefabSprite) as GameObject;
-                tempGO.transform.parent = cgo.transform;
-                tempGO.transform.localPosition = pip.loc;
-
-                if (pip.flip)
-                {
-                    tempGO.transform.rotation = Quaternion.Euler(0, 0, 180);
-                }
-
-                if (pip.scale != 1)
-                {
-                    tempGO.transform.localScale = Vector3.one * pip.scale;
-                }
-
-                if (pip.rotation != 0)
-                {
-                    tempGO.transform.rotation = Quaternion.Euler(0, 0, pip.rotation);
-                }
-
-                tempGO.name = "pip";
-                SpriteRenderer tempSR = tempGO.GetComponent<SpriteRenderer>();
-                tempSR.sprite = GetPipSprite(card.name);
-                tempSR.sortingOrder = 1;
-                card.pipGos.Add(tempGO);
+                CreateNumberCards(numNumber, cdef);
             }
-
-            playableGOs.Add(cgo);
-
-            cgo.transform.position = GetNewCardPos();
+            else
+            {
+                CreateNumberCards(1, cdef);
+            }
         }
 
         foreach (GameObject card in playableGOs)
@@ -422,7 +362,7 @@ public class SleepingQueens : MonoBehaviour
         }
     }
 
-    private void CreateMultiplePlayableCards(int totalCards, PT_XMLHashList xPlayables, int index)
+    private void CreatePlayableCards(int totalCards, PT_XMLHashList xPlayables, int index)
     {
         for (int i = 0; i < totalCards; i++)
         {
@@ -487,6 +427,81 @@ public class SleepingQueens : MonoBehaviour
 
             playableGOs.Add(testCard);
 
+        }
+    }
+
+    private void CreateNumberCards(int totalCards, CardDefinition cdef)
+    {
+        for(int i=0; i < totalCards; i++)
+        {
+            GameObject cgo = Instantiate(queensCardPrefab) as GameObject;
+            // set cgo transform parent
+            QueensCard card = cgo.GetComponent<QueensCard>();
+
+            card.name = cdef.rank.ToString();
+            card.value = cdef.rank;
+            card.cardType = CardType.ValueCard;
+
+            //Add Decorators
+            foreach (Decorator decko in decorators)
+            {
+                GameObject tGO = Instantiate(prefabSprite) as GameObject;
+                SpriteRenderer tSR = tGO.GetComponent<SpriteRenderer>();
+
+                tSR.sprite = GetSpriteByRank(card.value);
+                tSR.color = Color.black;
+
+                tSR.sortingOrder = 1;                     // make it render above card
+                tGO.transform.parent = cgo.transform;     // make deco a child of card GO
+                tGO.transform.localPosition = decko.loc;   // set the deco's local position
+
+                if (decko.flip)
+                {
+                    tGO.transform.rotation = Quaternion.Euler(0, 0, 180);
+                }
+
+                if (decko.scale != 1)
+                {
+                    tGO.transform.localScale = Vector3.one * decko.scale;
+                }
+
+                tGO.name = decko.type;
+
+                card.decoratorGos.Add(tGO);
+            } // end of foreach decorator creation
+
+            // Add the pips
+            foreach (Decorator pip in cdef.pips)
+            {
+                GameObject tempGO = Instantiate(prefabSprite) as GameObject;
+                tempGO.transform.parent = cgo.transform;
+                tempGO.transform.localPosition = pip.loc;
+
+                if (pip.flip)
+                {
+                    tempGO.transform.rotation = Quaternion.Euler(0, 0, 180);
+                }
+
+                if (pip.scale != 1)
+                {
+                    tempGO.transform.localScale = Vector3.one * pip.scale;
+                }
+
+                if (pip.rotation != 0)
+                {
+                    tempGO.transform.rotation = Quaternion.Euler(0, 0, pip.rotation);
+                }
+
+                tempGO.name = "pip";
+                SpriteRenderer tempSR = tempGO.GetComponent<SpriteRenderer>();
+                tempSR.sprite = GetPipSprite(card.name);
+                tempSR.sortingOrder = 1;
+                card.pipGos.Add(tempGO);
+            }
+
+            playableGOs.Add(cgo);
+
+            cgo.transform.position = GetNewCardPos();
         }
     }
 
