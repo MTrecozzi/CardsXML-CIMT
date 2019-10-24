@@ -56,6 +56,7 @@ public class SleepingQueens : MonoBehaviour
     public List<SpriteDefinition> kingSprites;
 
     [Header("Number of Each Card Type")]
+    // Sets the number of cards for each card type that will be created
     public int numKing = 1;
     public int numQueen = 1;    // Currently completely unused
     public int numKnight = 4;
@@ -117,6 +118,7 @@ public class SleepingQueens : MonoBehaviour
         {
             if (demoMode)
             {
+                // There's no way this is the most efficent way to do this, but here we are.
                 if (xPlayables[i].att("type").Equals("knight"))
                 {
                     CreatePlayableCards(numKnight, xPlayables, i);
@@ -149,6 +151,7 @@ public class SleepingQueens : MonoBehaviour
             }
         }
 
+        // Store all decorators
         decorators = new List<Decorator>();
         // grab all decorators from the XML file
         PT_XMLHashList xDecos = xmlr.xml["xml"][0]["decorator"];
@@ -166,8 +169,9 @@ public class SleepingQueens : MonoBehaviour
             decorators.Add(deco);
         }
         Debug.Log(decorators.Count);
-        PT_XMLHashList xQueens = xmlr.xml["xml"][0]["queenCard"];
 
+        // Create QueenCards
+        PT_XMLHashList xQueens = xmlr.xml["xml"][0]["queenCard"];
         // Rough, way too much duplicate code, could be cleaned with definittions and more organization
         for (int i = 0; i < xQueens.Count; i++)
         {
