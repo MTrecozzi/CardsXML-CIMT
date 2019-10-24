@@ -14,6 +14,8 @@ public class QueensDeck : MonoBehaviour {
 
     public GameObject discardPile;
 
+    public List<Vector2> queensPositions;
+
     public TextAsset layoutXML;
     public PT_XMLReader xmlr;
 
@@ -59,6 +61,23 @@ public class QueensDeck : MonoBehaviour {
             }
         }
 
+        // Create an XMLHashList of our defined Queen Positions
+        PT_XMLHashList queenPositions = xmlr.xml["xml"][0]["queensSlot"];
+
+        for (int i = 0; i < queenPositions.Count; i++)
+        {
+            Vector2 curPos = Vector2.zero;
+
+            float x;
+            float y;
+
+            // the x position of our current vector2 = the x position of our current definition.
+            x = float.Parse(queenPositions[i].att("x"));
+            y = float.Parse(queenPositions[i].att("y"));
+
+            this.queensPositions.Add(curPos);
+        }
+
         tempDiscardPile.discard.transform.position = discardPilePos;
 
         // Parse Draw Pile and Stagger It
@@ -79,6 +98,14 @@ public class QueensDeck : MonoBehaviour {
         for (int i = 0; i < playableCards.Count; i++)
         {
             drawStack.Push(playableCards[i]);
+        }
+    }
+
+    public void PlaceQueenCards()
+    {
+        for (int i = 0; i < queensPositions.Count; i++)
+        {
+            queensCards[i].transform.position = queensPositions[i];
         }
     }
 
